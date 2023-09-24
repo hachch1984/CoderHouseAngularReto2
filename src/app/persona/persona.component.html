@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-12">
+        <p class="display-6">Listado de personas</p>
+        <button [className]="this.personas.length===0?   'btn btn-primary':'btn btn-warning '"
+            (click)="this.mostrarListadoOnClick()"> {{this.personas.length===0?'Mostar listado':'Limpiar Listado'}}
+        </button>
+
+
+    </div>
+</div>
+
+<div class=" row g-4 mt-2">
+
+    <app-card *ngFor="let persona of this.personas;let index=index;" class="col" [persona]="persona"
+        [index]="index"></app-card>
+
+</div>

@@ -1,0 +1,28 @@
+<div
+    [className]="'card text-white '+(this.persona.gender==='Male'?'border-success bg-success':'border-danger bg-danger')">
+
+    <div class="card-header">
+      {{index+1}} - {{this.persona.email | titlecase}}
+    </div>
+
+    <div *ngIf="this.gifVisible" class="spinner-border" role="status">
+        <span class="visually-hidden">Loading Photo...</span>
+    </div>
+
+    <img [src]="this.persona.photo" class="card-img-top" [alt]="this.persona.first_name"
+        [title]="this.persona.first_name+' '+this.persona.last_name" (load)="this.onLoad()">
+
+    <div class="card-body">
+        <p>Nombre: {{this.persona.first_name |uppercase}}</p>
+        <p>Apellido: {{this.persona.last_name |uppercase}}</p>
+        <p>Genero: <span
+                [className]="this.persona.gender==='Female'?'badge bg-success':'badge bg-danger'">{{this.persona.gender
+                |lowercase}}</span>
+        </p>
+    </div>
+
+    <div class="card-footer">
+        Ip: {{this.persona.ip_address}}
+    </div>
+
+</div>
